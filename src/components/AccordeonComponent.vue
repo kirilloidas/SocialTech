@@ -77,10 +77,12 @@ const data = reactive([
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+  padding: 24px 31px 0 24px;
 }
 .accordion-button.collapsed {
   background: white;
   color: #0D2A54;
+  padding: 24px 31px 24px 24px;
 }
 .collapse, .collapsing {
   background: #FAF8F6;
