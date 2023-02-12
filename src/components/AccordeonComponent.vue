@@ -2,11 +2,11 @@
   <div class="accordion" id="accordionExample">
     <div class="accordion-item" v-for="(item, index) of data" :key="index">
       <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse' + index" aria-expanded="true" :aria-controls="'collapse' + index">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse' + index" aria-expanded="true" :aria-controls="'collapse' + index">
           {{ item.title }}
         </button>
       </h2>
-      <div :id="'collapse' + index" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div :id="'collapse' + index" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <ul class="secondary-list">
           <li class="secondary-list__item" v-for="(secondaryItem, secondaryIndex) of item.secondaryList" :key="secondaryIndex">
             {{ secondaryItem }}
@@ -70,32 +70,30 @@ const data = reactive([
   margin-right: auto;
 }
 .accordion-button {
-  /* border: none !important; */
   color: #2B41B7;
   background: #FAF8F6;
   font-style: normal;
-font-weight: 800;
-font-size: 16px;
-line-height: 24px;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
 }
 .accordion-button.collapsed {
-  /* border-bottom-image-width: 0; */
   background: white;
   color: #0D2A54;
 }
-.collapse {
+.collapse, .collapsing {
   background: #FAF8F6;
   padding: 8px 24px 24px 12px;
 }
 .secondary-list {
-  list-style-type: circle;
+  list-style-image: url('../assets/bullet.svg');
   margin-bottom: 0;
 }
 .secondary-list__item {
   font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
 }
 .secondary-list__item:not(:last-child) {
   margin-bottom: 8px;
