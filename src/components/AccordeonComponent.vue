@@ -1,101 +1,15 @@
 <template>
   <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
+    <div class="accordion-item" v-for="(item, index) of data" :key="index">
       <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          The analysis
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse' + index" aria-expanded="true" :aria-controls="'collapse' + index">
+          {{ item.title }}
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div :id="'collapse' + index" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <ul class="secondary-list">
-          <li class="secondary-list__item">
-            Do you have one user in more than one variant of the same AB test?
-          </li>
-          <li class="secondary-list__item">
-            Are you users actually getting the treatment we expect them to get?
-          </li>
-          <li class="secondary-list__item">
-            Do we have enough users in our AB test? Are those users representative for the total population?
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Our data
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <ul class="secondary-list">
-          <li class="secondary-list__item">
-            Do you have one user in more than one variant of the same AB test?
-          </li>
-          <li class="secondary-list__item">
-            Are you users actually getting the treatment we expect them to get?
-          </li>
-          <li class="secondary-list__item">
-            Do we have enough users in our AB test? Are those users representative for the total population?
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Our study case
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <ul class="secondary-list">
-          <li class="secondary-list__item">
-            Do you have one user in more than one variant of the same AB test?
-          </li>
-          <li class="secondary-list__item">
-            Are you users actually getting the treatment we expect them to get?
-          </li>
-          <li class="secondary-list__item">
-            Do we have enough users in our AB test? Are those users representative for the total population?
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Hands on analyzing
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <ul class="secondary-list">
-          <li class="secondary-list__item">
-            Do you have one user in more than one variant of the same AB test?
-          </li>
-          <li class="secondary-list__item">
-            Are you users actually getting the treatment we expect them to get?
-          </li>
-          <li class="secondary-list__item">
-            Do we have enough users in our AB test? Are those users representative for the total population?
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Initialization
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <ul class="secondary-list">
-          <li class="secondary-list__item">
-            Do you have one user in more than one variant of the same AB test?
-          </li>
-          <li class="secondary-list__item">
-            Are you users actually getting the treatment we expect them to get?
-          </li>
-          <li class="secondary-list__item">
-            Do we have enough users in our AB test? Are those users representative for the total population?
+          <li class="secondary-list__item" v-for="(secondaryItem, secondaryIndex) of item.secondaryList" :key="secondaryIndex">
+            {{ secondaryItem }}
           </li>
         </ul>
       </div>
@@ -103,7 +17,49 @@
   </div>
 </template>
 <script setup>
-
+import {reactive} from 'vue'
+const data = reactive([
+  {
+    title: 'The analysis',
+    secondaryList: [
+      'Do you have one user in more than one variant of the same AB test?',
+      'Are you users actually getting the treatment we expect them to get?',
+      'Do we have enough users in our AB test? Are those users representative for the total population?'
+    ]
+  },
+  {
+    title: 'Our data',
+    secondaryList: [
+      'Do you have one user in more than one variant of the same AB test?',
+      'Are you users actually getting the treatment we expect them to get?',
+      'Do we have enough users in our AB test? Are those users representative for the total population?'
+    ]
+  },
+  {
+    title: 'Our study case',
+    secondaryList: [
+      'Do you have one user in more than one variant of the same AB test?',
+      'Are you users actually getting the treatment we expect them to get?',
+      'Do we have enough users in our AB test? Are those users representative for the total population?'
+    ]
+  },
+  {
+    title: 'Hands on analyzing',
+    secondaryList: [
+      'Do you have one user in more than one variant of the same AB test?',
+      'Are you users actually getting the treatment we expect them to get?',
+      'Do we have enough users in our AB test? Are those users representative for the total population?'
+    ]
+  },
+  {
+    title: 'Initialization',
+    secondaryList: [
+      'Do you have one user in more than one variant of the same AB test?',
+      'Are you users actually getting the treatment we expect them to get?',
+      'Do we have enough users in our AB test? Are those users representative for the total population?'
+    ]
+  }
+])
 </script>
 <style lang="css" scoped>
 .accordion {
