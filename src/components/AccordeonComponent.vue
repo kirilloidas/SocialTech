@@ -116,5 +116,17 @@ const data = reactive([
   .accordion {
     width: 300px;
   }
+  .collapse, .collapsing {
+    padding: 8px 24px 24px 0;
+  }
+  .accordion-button {
+    padding: 16px 23px 0 16px;
+  }
+  .accordion-button.collapsed {
+    padding: 16px 23px 16px 16px;
+  }
+  .secondary-list {
+    padding-right: 16px;
+  }
 }
 </style>
