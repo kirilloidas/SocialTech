@@ -76,6 +76,7 @@ const data = reactive([
   font-weight: 800;
   font-size: 16px;
   line-height: 24px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 .accordion-button.collapsed {
   background: white;
